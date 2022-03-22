@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".fragment.FragmentJogo">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+
+    <LinearLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:orientation="horizontal"
+        android:id="@+id/idPaiJ1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:text="@string/Jogador1"
+            android:padding="7dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color200"
+            >
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/placarOne"
+            android:padding="10dp"
+            android:text="@string/Placar1"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color200"
+            >
+
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@+id/idPaiJ1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:orientation="horizontal"
+        android:id="@+id/idpaij2"
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:text="@string/Jogador2"
+            android:padding="5dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color200">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:padding="10dp"
+            android:text="@string/Placar2"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color200">
+        </TextView>
+
+    </LinearLayout>
+    <TableLayout
+        app:layout_constraintTop_toBottomOf="@+id/idpaij2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3">
+            <Button
+
+                android:layout_margin="5dp"
+                android:id="@+id/bt00"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+
+                />
+            <Button
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:id="@+id/bt01"
+                />
+            <Button
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:id="@+id/bt02"
+                />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:weightSum="3">
+            <Button
+
+                android:layout_margin="5dp"
+                android:id="@+id/bt10"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+
+                />
+            <Button
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:id="@+id/bt11"
+                />
+            <Button
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:id="@+id/bt12"
+                />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3">
+
+            <Button
+                android:paddingTop="0.5dp"
+                android:id="@+id/bt20"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+
+                />
+
+            <Button
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:id="@+id/bt21"
+                />
+            <Button
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:id="@+id/bt22"
+                />
+        </TableRow>
+
+    </TableLayout>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
