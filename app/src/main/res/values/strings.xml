@@ -7,6 +7,8 @@
     <string name="Jogador2">JOGADOR 2 |O|</string>
     <string name="Placar1">0</string>
     <string name="Placar2">0</string>
+    <string name="parabens">Parabens!! voce venceu!!</string>
+    <string name="parabensV">Parabens Velha!! voce venceu!!</string>
 
 
 </resources>

@@ -29,7 +29,7 @@
             android:text="@string/Jogador1"
             android:padding="7dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/color200"
+            android:textColor="@color/white"
             >
         </TextView>
 
@@ -39,7 +39,7 @@
             android:padding="10dp"
             android:text="@string/Placar1"
             android:layout_height="wrap_content"
-            android:textColor="@color/color200"
+            android:textColor="@color/white"
             >
 
         </TextView>
@@ -61,7 +61,7 @@
             android:text="@string/Jogador2"
             android:padding="5dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/color200">
+            android:textColor="@color/white">
         </TextView>
 
         <TextView
@@ -69,7 +69,7 @@
             android:padding="10dp"
             android:text="@string/Placar2"
             android:layout_height="wrap_content"
-            android:textColor="@color/color200">
+            android:textColor="@color/white">
         </TextView>
 
     </LinearLayout>
@@ -89,6 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
                 android:layout_weight="1"
+                android:textSize="50sp"
 
                 />
             <Button
@@ -97,6 +98,7 @@
                 android:layout_height="150dp"
                 android:layout_weight="1"
                 android:id="@+id/bt01"
+                android:textSize="50sp"
                 />
             <Button
                 android:layout_margin="5dp"
@@ -104,6 +106,7 @@
                 android:layout_height="150dp"
                 android:layout_weight="1"
                 android:id="@+id/bt02"
+                android:textSize="50sp"
                 />
         </TableRow>
         <TableRow
@@ -118,7 +121,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
                 android:layout_weight="1"
-
+                android:textSize="50sp"
                 />
             <Button
                 android:layout_margin="5dp"
@@ -126,6 +129,7 @@
                 android:layout_height="150dp"
                 android:layout_weight="1"
                 android:id="@+id/bt11"
+                android:textSize="50sp"
                 />
             <Button
                 android:layout_margin="5dp"
@@ -133,6 +137,7 @@
                 android:layout_height="150dp"
                 android:layout_weight="1"
                 android:id="@+id/bt12"
+                android:textSize="50sp"
                 />
         </TableRow>
         <TableRow
@@ -145,9 +150,9 @@
                 android:id="@+id/bt20"
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
-                android:layout_margin="5dp"
+                android:layout_margin="4dp"
                 android:layout_weight="1"
-
+                android:textSize="50sp"
                 />
 
             <Button
@@ -156,6 +161,7 @@
                 android:layout_height="150dp"
                 android:layout_weight="1"
                 android:id="@+id/bt21"
+                android:textSize="50sp"
                 />
             <Button
                 android:layout_margin="5dp"
@@ -163,6 +169,7 @@
                 android:layout_height="150dp"
                 android:layout_weight="1"
                 android:id="@+id/bt22"
+                android:textSize="50sp"
                 />
         </TableRow>
 
