@@ -24,14 +24,13 @@
         >
 
         <TextView
+            android:id="@+id/tv_jog1"
             android:layout_width="0dp"
-            android:layout_weight="8"
-            android:text="@string/Jogador1"
-            android:padding="7dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            >
-        </TextView>
+            android:layout_weight="8"
+            android:padding="7dp"
+            android:text="@string/Jogador1"
+            android:textColor="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,6 +38,7 @@
             android:padding="10dp"
             android:text="@string/Placar1"
             android:layout_height="wrap_content"
+            android:background="@color/black"
             android:textColor="@color/white"
             >
 
@@ -56,19 +56,21 @@
         >
 
         <TextView
+            android:id="@+id/tv_jog2"
             android:layout_width="0dp"
-            android:layout_weight="8"
-            android:text="@string/Jogador2"
-            android:padding="5dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/white">
-        </TextView>
+            android:layout_weight="8"
+            android:padding="5dp"
+            android:text="@string/Jogador2"
+            android:textColor="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
             android:padding="10dp"
+            android:id="@+id/placarSecond"
             android:text="@string/Placar2"
             android:layout_height="wrap_content"
+            android:background="@color/black"
             android:textColor="@color/white">
         </TextView>
 

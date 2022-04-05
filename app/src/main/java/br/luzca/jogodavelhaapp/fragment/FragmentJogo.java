@@ -3,10 +3,15 @@ package br.luzca.jogodavelhaapp.fragment;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -17,6 +22,7 @@ import java.util.Random;
 
 import br.luzca.jogodavelhaapp.R;
 import br.luzca.jogodavelhaapp.databinding.FragmentJogoBinding;
+import br.luzca.jogodavelhaapp.util.PrefsUtil;
 
 
 public class FragmentJogo extends Fragment {
@@ -26,10 +32,12 @@ public class FragmentJogo extends Fragment {
     private String simbJ1, simbJ2, simbolo;
     private Random random;
     private int numJogadas = 0;
+    private int placarJog1 = 0, placarJog2 = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
        binding = FragmentJogoBinding.inflate(inflater,container, false);
 
 //       istancia p vetor
@@ -54,8 +62,11 @@ public class FragmentJogo extends Fragment {
         }
 
         random = new Random();
-        simbJ1 = "X";
-        simbJ2 = "O";
+        simbJ1 = PrefsUtil.getSimboloJog1(getContext());
+        simbJ2 = PrefsUtil.getSimboloJog2(getContext());
+        binding.tvJog1.setText(getResources().getString(R.string.Jogador1, simbJ1));
+        binding.tvJog2.setText(getResources().getString(R.string.Jogador2, simbJ2));
+
 
         sorteia();
 //       returnar a view do Fragment
@@ -139,8 +150,15 @@ public class FragmentJogo extends Fragment {
         botao.setClickable(false);
         botao.setBackgroundColor(Color.WHITE);
         if(numJogadas >= 5 && venceu()) {
-            //exibe um Toast informando que o jogador veneu
-            Toast.makeText(getContext(), R.string.parabens, Toast.LENGTH_LONG).show();
+            //exibe um Toast informando que o jogador venceu
+            if (simbolo.equals(simbJ1)){
+                placarJog1++;
+                Toast.makeText(getContext(), R.string.parabens, Toast.LENGTH_LONG).show();
+            }else {
+                placarJog2++;
+                Toast.makeText(getContext(), R.string.parabens, Toast.LENGTH_LONG).show();
+            }
+            atualizarPlacar();
             resetar();
 
         }else if (numJogadas == 9){
@@ -154,5 +172,34 @@ public class FragmentJogo extends Fragment {
 
 
     };
+    private void atualizarPlacar(){
+        binding.placarOne.setText(placarJog1+"");
+        binding.placarSecond.setText(placarJog2+"");
+    }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_main, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        //verifica o botão cliqaudo no menu
+        switch (item.getItemId()){
+            //caso ter cliquadp no botao resetar
+            case R.id.menuResetar:
+                placarJog1 = 0;
+                placarJog2 = 0;
+                resetar();
+                atualizarPlacar();
+                break;
+            case R.id.menuPreference:
+                NavHostFragment.findNavController(FragmentJogo.this).
+                        navigate(R.id.action_fragmentJogo_to_prefFragment);
+                break;
+        }
+
+        return true;
+    }
 }

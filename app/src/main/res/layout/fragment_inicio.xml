@@ -6,9 +6,57 @@
     tools:context=".fragment.FragmentInicio">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        android:id="@+id/lay_game">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/Luzca_games"
+            android:paddingLeft="150dp"
+            android:background="@color/color200"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="200dp"
+        android:id="@+id/lay_title">
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:background="@color/color200"
+            android:backgroundTint="@color/black"
+            android:paddingLeft="145dp"
+            android:text="@string/Luzca_game_title"
+            android:textColor="@color/white"
+
+            android:textSize="20dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="250dp"
+        android:id="@+id/lay_button">
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:background="@color/color200"
+            android:backgroundTint="@color/black"
+            android:paddingLeft="145dp"
+            android:text="@string/Luzca_game_buuton"
+            android:textColor="@color/white"
+
+            android:textSize="20dp"/>
+    </LinearLayout>
+
+
+
 
 </FrameLayout>
