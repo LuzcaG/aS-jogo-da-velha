@@ -45,6 +45,7 @@
         android:id="@+id/lay_button">
 
         <Button
+            android:id="@+id/btIniciar"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:background="@color/color200"

@@ -2,6 +2,16 @@
 <androidx.preference.PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
     <androidx.preference.EditTextPreference
+        android:key="nome_Jog_1"
+        android:title="Nome do jogador 1"
+        android:summary="Escolha o nome do Jogador 1"
+        />
+    <androidx.preference.EditTextPreference
+        android:key="nome_Jog_2"
+        android:title="Nome do jogador 2"
+        android:summary="Escolha o nome do Jogador 2"
+        />
+    <androidx.preference.EditTextPreference
         android:key="simb_Jog_1"
         android:title="Simbolo do jogador 1"
         android:summary="Escolha o simbolo do Jogador 1"
@@ -11,5 +21,11 @@
         android:title="Simbolo do jogador 2"
         android:summary="Escolha o simbolo do Jogador 2"
         />
+    <androidx.preference.EditTextPreference
+        android:key="nome_Velha"
+        android:title="Nome da velha"
+        android:summary="Escolha o nome da velha"
+        />
+
 
 </androidx.preference.PreferenceScreen>

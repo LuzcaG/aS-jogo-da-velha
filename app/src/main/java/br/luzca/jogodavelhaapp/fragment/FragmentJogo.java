@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -29,10 +30,11 @@ public class FragmentJogo extends Fragment {
     private FragmentJogoBinding binding;
     private Button[] botooes;
     private String[][] tabuleiro;
-    private String simbJ1, simbJ2, simbolo;
+    private String simbJ1, simbJ2, simbolo, nomeJ1, nomeJ2, nome,nomeV, nomeVelha;
     private Random random;
     private int numJogadas = 0;
     private int placarJog1 = 0, placarJog2 = 0;
+    private int placarVelha = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,6 +54,8 @@ public class FragmentJogo extends Fragment {
         botooes[6] = binding.bt20;
         botooes[7] = binding.bt21;
         botooes[8] = binding.bt22;
+
+
 //        associa o listener aos botões
         for (Button bt : botooes){
             bt.setOnClickListener(listenerBotoes);
@@ -64,9 +68,14 @@ public class FragmentJogo extends Fragment {
         random = new Random();
         simbJ1 = PrefsUtil.getSimboloJog1(getContext());
         simbJ2 = PrefsUtil.getSimboloJog2(getContext());
-        binding.tvJog1.setText(getResources().getString(R.string.Jogador1, simbJ1));
-        binding.tvJog2.setText(getResources().getString(R.string.Jogador2, simbJ2));
-
+        nomeJ1 = PrefsUtil.getNomeJog1(getContext());
+        nomeJ2 = PrefsUtil.getNomeJog2(getContext());
+        nomeV =  PrefsUtil.getNomeVelha(getContext());
+        binding.tvJog1.setText(getResources().getString(R.string.Jogador1,nomeJ1 +"  " +
+                "  |"+ simbJ1+" |"));
+        binding.tvJog2.setText(getResources().getString(R.string.Jogador2, nomeJ2+"  " +
+                "  | "+ simbJ2+" |"));
+        binding.tvVelha.setText(getResources().getString(R.string.Velha, nomeV));
 
         sorteia();
 //       returnar a view do Fragment
@@ -92,7 +101,7 @@ public class FragmentJogo extends Fragment {
     }
     private boolean venceu(){
         for (int i = 0;i < 3; i++) {
-            if (tabuleiro[i][0].equals(simbolo)
+                   if (tabuleiro[i][0].equals(simbolo)
                     && tabuleiro[i][1].equals(simbolo)
                     && tabuleiro[i][2].equals(simbolo)) {
                 return true;
@@ -100,19 +109,19 @@ public class FragmentJogo extends Fragment {
         }
 
         for (int i = 0;i < 3; i++){
-            if (tabuleiro[0][i].equals(simbolo)
+                   if (tabuleiro[0][i].equals(simbolo)
                     && tabuleiro[1][i].equals(simbolo)
                     && tabuleiro[2][i].equals(simbolo)){
                 return true;
             }
         }
 
-            if (tabuleiro[0][0].equals(simbolo)
+                   if (tabuleiro[0][0].equals(simbolo)
                     && tabuleiro[1][1].equals(simbolo)
                     && tabuleiro[2][2].equals(simbolo)){
                 return true;
             }
-            if (tabuleiro[0][2].equals(simbolo)
+                   if (tabuleiro[0][2].equals(simbolo)
                     && tabuleiro[1][1].equals(simbolo)
                     && tabuleiro[2][0].equals(simbolo)){
                 return true;
@@ -130,6 +139,7 @@ public class FragmentJogo extends Fragment {
             botao.setClickable(true);
         }
         sorteia();
+
         atualizaVez();
         numJogadas = 0;
     }
@@ -153,17 +163,27 @@ public class FragmentJogo extends Fragment {
             //exibe um Toast informando que o jogador venceu
             if (simbolo.equals(simbJ1)){
                 placarJog1++;
-                Toast.makeText(getContext(), R.string.parabens, Toast.LENGTH_LONG).show();
+                if (placarJog1 == 3){
+                    Toast.makeText(getContext(), R.string.parabens, Toast.LENGTH_LONG).show();
+                }
+
             }else {
                 placarJog2++;
-                Toast.makeText(getContext(), R.string.parabens, Toast.LENGTH_LONG).show();
+                if (placarJog2 == 3){
+                    Toast.makeText(getContext(), R.string.parabens, Toast.LENGTH_LONG).show();
+                }
+
             }
             atualizarPlacar();
             resetar();
 
+
         }else if (numJogadas == 9){
+            placarVelha++;
             Toast.makeText(getContext(), R.string.parabensV, Toast.LENGTH_LONG).show();
+            atualizarPlacar();
             resetar();
+
         }else{
             simbolo = simbolo.equals(simbJ1)? simbJ2 : simbJ1;
             atualizaVez();
@@ -175,6 +195,7 @@ public class FragmentJogo extends Fragment {
     private void atualizarPlacar(){
         binding.placarOne.setText(placarJog1+"");
         binding.placarSecond.setText(placarJog2+"");
+        binding.placarVelha.setText(placarVelha+"");
     }
 
     @Override
@@ -191,6 +212,7 @@ public class FragmentJogo extends Fragment {
             case R.id.menuResetar:
                 placarJog1 = 0;
                 placarJog2 = 0;
+                placarVelha = 0;
                 resetar();
                 atualizarPlacar();
                 break;
@@ -201,5 +223,15 @@ public class FragmentJogo extends Fragment {
         }
 
         return true;
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        // para sumir a toolbar
+        // pegar uma referencia do tipo AppCompatActivity
+        AppCompatActivity minhaActivity = (AppCompatActivity) getActivity();
+        minhaActivity.getSupportActionBar().show();
+
+        minhaActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
 }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragmentJogo">
+    app:startDestination="@id/fragmentInicio">
 
 
     <fragment
@@ -26,11 +26,27 @@
         <action
             android:id="@+id/action_fragmentJogo_to_prefFragment"
             app:destination="@id/prefFragment" />
+        <action
+            android:id="@+id/action_fragmentJogo_to_winnerFragment"
+            app:destination="@id/winnerFragment" />
+        <action
+            android:id="@+id/action_fragmentJogo_to_winner2Fragment"
+            app:destination="@id/winner2Fragment" />
     </fragment>
     <fragment
         android:id="@+id/prefFragment"
         android:name="br.luzca.jogodavelhaapp.fragment.PrefFragment"
         android:label="Preferencias"
         tools:layout="@layout/fragment_pref" />
+    <fragment
+        android:id="@+id/winnerFragment"
+        android:name="br.luzca.jogodavelhaapp.fragment.winnerFragment"
+        android:label="fragment_winner"
+        tools:layout="@layout/fragment_winner" />
+    <fragment
+        android:id="@+id/winner2Fragment"
+        android:name="br.luzca.jogodavelhaapp.fragment.winner2Fragment"
+        android:label="fragment_winner2"
+        tools:layout="@layout/fragment_winner2" />
 
 </navigation>
